@@ -9,10 +9,7 @@ import { company, nav } from "../data/site";
       class="mt-3 flex items-center justify-between rounded-full border border-transparent px-4 py-2.5 transition-all duration-500 sm:px-5"
     >
       <a href="#top" class="flex items-center" aria-label={`${company.name} home`}>
-        <span class="relative block h-8 w-[133px] sm:h-9 sm:w-[150px]">
-          <img src="/brand/logo-hero.png" alt={company.name} class="wm wm-light absolute inset-0 h-full w-full object-contain object-left" width="224" height="55" />
-          <img src="/brand/logo-ink.png" alt="" aria-hidden="true" class="wm wm-dark absolute inset-0 h-full w-full object-contain object-left" width="224" height="55" />
-        </span>
+        <img src="/brand/logo-ink.png" alt={company.name} class="h-9 w-auto sm:h-10" width="224" height="55" />
       </a>
 
       <nav class="hidden items-center gap-0.5 lg:flex">
@@ -87,31 +84,20 @@ import { company, nav } from "../data/site";
 </script>
 
 <style>
-  /* Boven (over donkere hero) */
-  .nav-link { color: rgba(255, 255, 255, 0.82); }
-  .nav-link:hover { color: #fff; }
-  .hdr-phone { color: rgba(255, 255, 255, 0.88); }
-  .hdr-phone:hover { color: var(--color-geel); }
-  .hdr-cta { background: var(--color-geel); color: var(--color-navy-deep); }
-  .hdr-cta:hover { transform: translateY(-1px); background: var(--color-geel-bright); box-shadow: 0 12px 26px -10px rgba(251, 204, 26, 0.6); }
-  .menu-btn { border-color: rgba(255, 255, 255, 0.32); color: #fff; }
-  .wm-dark { opacity: 0; }
-  .wm { transition: opacity 0.4s ease; }
+  /* Header staat altijd over een lichte achtergrond: donkere content */
+  .nav-link { color: var(--fg-soft); }
+  .nav-link:hover { color: var(--color-navy); }
+  .hdr-phone { color: var(--fg-soft); }
+  .hdr-phone:hover { color: var(--color-navy); }
+  .hdr-cta { background: var(--color-navy); color: #fff; }
+  .hdr-cta:hover { transform: translateY(-1px); background: #00468c; box-shadow: 0 12px 26px -10px rgba(0, 60, 120, 0.5); }
+  .menu-btn { border-color: var(--border); color: var(--color-navy); }
 
-  /* Gescrolld (over lichte content) */
+  /* Gescrolld: subtiele achtergrond-blur + rand */
   #header-inner.is-scrolled {
-    background: rgba(246, 243, 236, 0.88);
+    background: rgba(244, 240, 231, 0.9);
     backdrop-filter: blur(16px);
     border-color: var(--border);
     box-shadow: 0 12px 34px -22px rgba(11, 31, 58, 0.4);
   }
-  #header-inner.is-scrolled .nav-link { color: var(--fg-soft); }
-  #header-inner.is-scrolled .nav-link:hover { color: var(--color-navy); }
-  #header-inner.is-scrolled .hdr-phone { color: var(--fg-soft); }
-  #header-inner.is-scrolled .hdr-phone:hover { color: var(--color-navy); }
-  #header-inner.is-scrolled .hdr-cta { background: var(--color-navy); color: #fff; }
-  #header-inner.is-scrolled .hdr-cta:hover { background: #00468c; }
-  #header-inner.is-scrolled .menu-btn { border-color: var(--border); color: var(--color-navy); }
-  #header-inner.is-scrolled .wm-light { opacity: 0; }
-  #header-inner.is-scrolled .wm-dark { opacity: 1; }
 </style>
