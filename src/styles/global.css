@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 /*
-  Bouwbedrijf Van de Linde — atelier van de Zeeuwse bouwkunst
-  Een architectonisch monogram: editoriale serif (Fraunces), technische mono-labels
-  (IBM Plex Mono), gevel-lijn als signatuur, warme kalk + navy + geel uit het logo.
+  Bouwbedrijf Van de Linde — clean, zelfverzekerd, Zeeuws.
+  Strakke grotesk (Inter Tight) voor koppen + Inter voor tekst, geen sierlijk lettertype.
+  Gevel-lijn als subtiele signatuur, warme kalk + navy + geel uit het logo.
   Lichte "kalk" als standaard, navy als donkere accent-context (.ctx-dark).
 */
 
@@ -19,9 +19,9 @@
   --color-steen: #ebe5d8;
   --color-zand: #e2d9c6;
 
-  --font-display: "Fraunces", "Georgia", serif;
+  --font-display: "Inter Tight", "Inter", "Helvetica Neue", system-ui, sans-serif;
   --font-sans: "Inter", "Helvetica Neue", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, monospace;
+  --font-mono: "SFMono-Regular", ui-monospace, monospace;
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
@@ -79,11 +79,10 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.06;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
     color: var(--fg);
-    font-optical-sizing: auto;
   }
   a { -webkit-tap-highlight-color: transparent; }
   :focus-visible { outline: 2px solid var(--color-navy); outline-offset: 3px; border-radius: 3px; }
@@ -144,8 +143,8 @@
 
   .display {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.022em;
+    font-weight: 600;
+    letter-spacing: -0.03em;
     line-height: 1.04;
     overflow-wrap: break-word;
     color: var(--fg);
