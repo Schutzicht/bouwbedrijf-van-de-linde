@@ -20,15 +20,12 @@ const filters = ["Alle", ...projectCategories];
       </div>
     </div>
 
-    <div id="proj-grid" class="mt-14 grid grid-flow-row-dense gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+    <div id="proj-grid" class="mt-14 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
       {
-        projecten.map((p, i) => (
-          <article
-            class={`proj-card group reveal ${p.featured ? "sm:col-span-2" : ""}`}
-            data-cat={p.category}
-          >
+        projecten.map((p) => (
+          <article class="proj-card group reveal" data-cat={p.category}>
             <a href="#contact" class="block">
-              <div class="plate relative" style={`aspect-ratio:${p.featured ? "16/10" : "4/5"};`}>
+              <div class="plate relative" style="aspect-ratio:4/3;">
                 <img
                   src={p.image}
                   alt={`${p.title}, ${p.place}`}
@@ -44,7 +41,6 @@ const filters = ["Alle", ...projectCategories];
                 <span class="label">{p.place}</span>
               </div>
               <h3 class="proj-title mt-2 inline serif text-[1.3rem] font-medium leading-tight">{p.title}</h3>
-              {p.featured && <p class="mt-2 max-w-lg text-sm leading-relaxed text-[var(--fg-soft)]">{p.blurb}</p>}
             </a>
           </article>
         ))
@@ -57,9 +53,9 @@ const filters = ["Alle", ...projectCategories];
 
 <style>
   .proj-filter {
-    font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.06em;
+    font-family: var(--font-sans); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.01em;
     border-radius: 99px; border: 1px solid var(--border); color: var(--fg-soft);
-    background: transparent; padding: 0.5rem 1rem; transition: all 0.3s var(--ease-out-soft);
+    background: transparent; padding: 0.5rem 1.1rem; transition: all 0.3s var(--ease-out-soft);
   }
   .proj-filter:hover { border-color: color-mix(in srgb, var(--color-navy) 40%, var(--border)); color: var(--color-navy); }
   .proj-filter.is-active { background: var(--color-navy); border-color: var(--color-navy); color: #fff; }

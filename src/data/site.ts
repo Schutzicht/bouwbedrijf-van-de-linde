@@ -103,15 +103,13 @@ export type ProjectCategory =
   | "Restauratie"
   | "Woningbouw"
   | "Utiliteit"
-  | "Winkelbouw"
-  | "Verduurzaming";
+  | "Winkelbouw";
 
 export const projectCategories: ProjectCategory[] = [
   "Restauratie",
   "Woningbouw",
   "Utiliteit",
   "Winkelbouw",
-  "Verduurzaming",
 ];
 
 export interface Project {
@@ -125,13 +123,36 @@ export interface Project {
 
 export const projecten: Project[] = [
   {
-    title: "Retraitecentrum Land aan Zee",
-    place: "Burgh-Haamstede",
+    title: "Kasteel Westhove",
+    place: "Domburg",
+    category: "Restauratie",
+    blurb:
+      "Restauratiewerk aan een eeuwenoud kasteel met slotgracht. Ambachtelijk metsel- en timmerwerk dat decennia meegaat.",
+    image: "/projecten/p-westhove.jpg",
+  },
+  {
+    title: "Vrijstaande villa",
+    place: "Kortgene",
+    category: "Woningbouw",
+    blurb:
+      "Een strakke, energiezuinige nieuwbouwvilla. Helder gedetailleerd, met veel licht en ruimte.",
+    image: "/projecten/p-trintellaan.jpg",
+  },
+  {
+    title: "Bedrijfspand Pommec",
+    place: "Bergen op Zoom",
     category: "Utiliteit",
     blurb:
-      "Een ingetogen verblijfscomplex dat opgaat in het Zeeuwse landschap. Donkere gevels, natuurlijke materialen en een vijverpartij die rust uitstraalt.",
-    image: "/projecten/p-landaanzee.jpg",
-    featured: true,
+      "Representatief bedrijfspand met een eigentijdse uitstraling. Functioneel, duurzaam en netjes afgewerkt.",
+    image: "/projecten/p-pommec.jpg",
+  },
+  {
+    title: "Herenmodezaak Sjaak van Zee",
+    place: "Goes",
+    category: "Winkelbouw",
+    blurb:
+      "Volledige verbouwing van een herenmodezaak in het centrum. Een warm, hoogwaardig interieur, opgeleverd zonder de zaak te sluiten.",
+    image: "/projecten/p-sjaakvanzee.jpg",
   },
   {
     title: "Restauratie Geerteskerk",
@@ -139,57 +160,31 @@ export const projecten: Project[] = [
     category: "Restauratie",
     blurb:
       "Zorgvuldig herstel van metsel- en voegwerk aan een monumentale dorpskerk, met respect voor het oorspronkelijke beeld.",
-    image: "/projecten/p-restauratie.jpg",
-    featured: true,
+    image: "/projecten/p-geerteskerk.jpg",
   },
   {
-    title: "Vrijstaande villa",
-    place: "Middelburg",
-    category: "Woningbouw",
-    blurb:
-      "Een eigentijdse villa op maat. Warm metselwerk gecombineerd met grote glaspartijen die binnen en buiten laten samenvloeien.",
-    image: "/projecten/p-villa.jpg",
-    featured: true,
-  },
-  {
-    title: "Nieuwbouw kantoorpand",
-    place: "Goes",
-    category: "Utiliteit",
-    blurb:
-      "Representatief bedrijfspand op bedrijvenpark Deltaweg. Strakke detaillering, energiezuinig en klaar voor de toekomst.",
-    image: "/projecten/p-utiliteit.jpg",
-  },
-  {
-    title: "Herenmodezaak Sjaak van Zee",
-    place: "Goes",
-    category: "Winkelbouw",
-    blurb:
-      "Volledige verbouwing van een winkelpand in het centrum. Een warm, hoogwaardig interieur, opgeleverd zonder de zaak te sluiten.",
-    image: "/projecten/p-winkel.jpg",
-  },
-  {
-    title: "Verduurzaming woning",
-    place: "Kloetinge",
-    category: "Verduurzaming",
-    blurb:
-      "Bestaande woning naar een hoger energielabel. Isolatie, zonnepanelen en kierdichting, met behoud van het karakter.",
-    image: "/projecten/p-verduurzaming.jpg",
-  },
-  {
-    title: "Kasteel Westhove",
-    place: "Domburg",
-    category: "Restauratie",
-    blurb:
-      "Restauratiewerk aan een eeuwenoud kasteel. Ambachtelijk metsel- en timmerwerk dat decennia meegaat.",
-    image: "/projecten/p-monument.jpg",
-  },
-  {
-    title: "Vakantiewoning aan de Schotsman",
+    title: "Villa aan het Veerse Meer",
     place: "Kamperland",
     category: "Woningbouw",
     blurb:
-      "Een lichte, ruime recreatiewoning vlak bij het Veerse Meer. Comfortabel afgewerkt voor jarenlang woonplezier.",
-    image: "/projecten/p-villa.jpg",
+      "Een eigentijdse villa aan het water. Natuurlijke materialen en grote glaspartijen die binnen en buiten verbinden.",
+    image: "/projecten/p-villaveersemeer.jpg",
+  },
+  {
+    title: "Retraitecentrum Land aan Zee",
+    place: "Burgh-Haamstede",
+    category: "Utiliteit",
+    blurb:
+      "Een ingetogen verblijfscomplex dat opgaat in het Zeeuwse landschap. Donkere gevels en natuurlijke materialen.",
+    image: "/projecten/p-landaanzee.jpg",
+  },
+  {
+    title: "Bax Shop",
+    place: "Goes",
+    category: "Winkelbouw",
+    blurb:
+      "Winkelinrichting en verbouwing van een grote speciaalzaak. Strak, helder en klaar voor veel bezoekers.",
+    image: "/projecten/p-baxshop.jpg",
   },
 ];
 
