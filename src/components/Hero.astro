@@ -1,79 +1,64 @@
 ---
-import { hero } from "../data/site";
-const lines = ["Wij bouwen voor", "de generaties", "ná ons."];
+import { hero, company, stats } from "../data/site";
+const heroStats = stats.slice(0, 3);
 ---
 
-<section id="top" class="js-hero ctx-dark grain relative flex min-h-[100svh] flex-col overflow-hidden">
-  <!-- Beeldlaag met parallax -->
-  <div class="absolute inset-0 z-0 overflow-hidden">
-    <div class="absolute inset-0 scale-[1.14]" data-parallax="0.08">
-      <div class="absolute inset-0 bg-[var(--color-navy-deep)]"></div>
-      <img
-        src="/img/hero.jpg"
-        alt="Door Van de Linde gerealiseerde villa in Zeeland"
-        class="h-full w-full object-cover opacity-85"
-        width="1760" height="990" fetchpriority="high"
-      />
-    </div>
-    <div class="absolute inset-0" style="background:linear-gradient(105deg, rgba(8,28,56,0.95) 0%, rgba(8,28,56,0.74) 36%, rgba(8,28,56,0.2) 66%, rgba(8,28,56,0.55) 100%);"></div>
-    <div class="absolute inset-x-0 bottom-0 h-40" style="background:linear-gradient(to top, rgba(7,24,48,0.92), transparent);"></div>
-  </div>
+<section id="top" class="ctx-light relative overflow-hidden border-b border-[var(--border)]" style="background:var(--color-kalk);">
+  <div class="container-edge grid gap-12 pt-28 pb-16 sm:pt-32 lg:grid-cols-12 lg:gap-12 lg:pt-36 lg:pb-24">
+    <div class="lg:col-span-7 lg:self-center">
+      <p class="eyebrow reveal">{company.tagline} · Goes</p>
 
-  <!-- Editoriale meta-balk -->
-  <div class="relative z-10 pt-28 sm:pt-32">
-    <div class="container-edge">
-      <div class="flex items-center justify-between border-b border-white/12 pb-4">
-        <span class="label" style="color:rgba(244,241,232,0.62);">Bouwbedrijf · sinds 1953</span>
-        <span class="label hidden sm:block" style="color:rgba(244,241,232,0.62);">51°30′N&nbsp;&nbsp;3°53′E — Goes, Zeeland</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Titelblok -->
-  <div class="relative z-10 flex flex-1 items-center">
-    <div class="container-edge w-full py-12">
-      <h1 class="display lh-tight h-hero text-white">
-        {lines.map((line, i) => (
-          <span class="h-line"><span class="h-line-i" style={`transition-delay:${i * 0.1}s`}>
-            {i === lines.length - 1 ? <span style="color:var(--color-geel);">{line}</span> : line}
-          </span></span>
-        ))}
+      <h1 class="display reveal mt-5 text-[var(--color-navy-ink)]" style="font-size:clamp(2rem,5.2vw,4.2rem);line-height:1.07;">
+        Bouwen met <span class="mark-geel">karakter</span>,<br />voor generaties.
       </h1>
 
-      <div class="mt-9 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
-        <p class="lede max-w-xl" style="color:rgba(244,241,232,0.85);">{hero.intro}</p>
-        <div class="flex flex-wrap items-center gap-3 lg:shrink-0">
-          <a href={hero.ctaPrimary.href} class="btn btn-geel btn-mag">{hero.ctaPrimary.label}</a>
-          <a href={hero.ctaSecondary.href} class="btn btn-ghost link-sweep">{hero.ctaSecondary.label}</a>
+      <p class="reveal mt-7 max-w-xl text-[var(--fg-soft)]" style="font-size:1.075rem;line-height:1.7;">
+        {hero.intro}
+      </p>
+
+      <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+        <a href="#contact" class="btn btn-navy">Offerte aanvragen</a>
+        <a href="#projecten" class="btn btn-ghost link-sweep">Bekijk projecten</a>
+      </div>
+
+      <dl class="reveal mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-[var(--line)] pt-8">
+        {
+          heroStats.map((s) => (
+            <div>
+              <dd class="display text-[var(--color-navy)]" style="font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:600;line-height:1;">
+                <span class="tnum" data-count={s.value} data-suffix={s.suffix}>0{s.suffix}</span>
+              </dd>
+              <dt class="mt-2 text-xs leading-snug text-[var(--fg-muted)]">{s.label}</dt>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <!-- Beeldcollage -->
+    <div class="reveal relative lg:col-span-5">
+      <div class="grid grid-cols-2 gap-3 sm:gap-4">
+        <div class="col-span-2 overflow-hidden rounded-2xl">
+          <img src="/img/hero.jpg" alt="Nieuwbouwvilla door Van de Linde in Zeeland" class="h-64 w-full object-cover sm:h-80 lg:h-[24rem]" width="1200" height="700" fetchpriority="high" />
+        </div>
+        <div class="overflow-hidden rounded-2xl">
+          <img src="/projecten/p-landaanzee.jpg" alt="Modern project in het Zeeuwse landschap" class="h-36 w-full object-cover sm:h-48" loading="lazy" width="600" height="450" />
+        </div>
+        <div class="overflow-hidden rounded-2xl">
+          <img src="/projecten/p-restauratie.jpg" alt="Monumentale restauratie" class="h-36 w-full object-cover sm:h-48" loading="lazy" width="600" height="450" />
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Onderbalk: scroll-cue + fotobijschrift -->
-  <div class="relative z-10 pb-7">
-    <div class="container-edge">
-      <div class="flex items-end justify-between gap-6">
-        <a href="#bedrijf" class="group inline-flex items-center gap-3" aria-label="Scroll naar beneden">
-          <span class="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white/80 transition-colors duration-300 group-hover:border-[var(--color-geel)] group-hover:text-[var(--color-geel)]">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-          </span>
-          <span class="label" style="color:rgba(244,241,232,0.6);">Ontdek</span>
-        </a>
-
-        <figure class="hidden text-right sm:block">
-          <figcaption class="cap" style="color:rgba(244,241,232,0.6);">Plaat 01 — Vrijstaande villa, Middelburg</figcaption>
-        </figure>
+      <div class="mt-4 flex items-center gap-3.5 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-[var(--shadow-soft)]">
+        <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl" style="background:rgba(251,204,26,0.18);">
+          <svg width="22" height="18" viewBox="0 0 24 20" fill="none" stroke="var(--color-navy)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 2l10 7"/><path d="M5 7v11h14V7" opacity="0.55"/></svg>
+        </span>
+        <div class="text-sm">
+          <p class="font-semibold text-[var(--fg)]">Drie generaties vakmanschap</p>
+          <p class="text-[var(--fg-muted)]">Van rijksmonument tot nieuwbouwvilla</p>
+        </div>
+        <a href={company.phoneHref} class="link-sweep ml-auto hidden shrink-0 text-sm font-semibold text-[var(--color-navy)] sm:block">Bel ons</a>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .h-line { display: block; overflow: hidden; padding-bottom: 0.08em; }
-  .h-line-i { display: block; transform: translateY(112%); transition: transform 1.05s var(--ease-out-soft); }
-  .hero-go .h-line-i { transform: translateY(0); }
-  @media (prefers-reduced-motion: reduce) {
-    .h-line-i { transform: none !important; }
-  }
-</style>

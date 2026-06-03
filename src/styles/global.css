@@ -79,9 +79,9 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.018em;
-    line-height: 1.04;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.06;
     color: var(--fg);
     font-optical-sizing: auto;
   }
@@ -101,41 +101,60 @@
   .ctx-light { background: var(--bg); color: var(--fg); }
   .ctx-dark { background: var(--bg); color: var(--fg); }
 
-  /* Technisch mono-label (index / coordinaten / meta) */
+  /* Rustige eyebrow: puntje + getrackt label */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--eyebrow);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 6px; height: 6px; border-radius: 99px;
+    background: var(--color-geel-deep);
+  }
+  .ctx-dark .eyebrow::before { background: var(--color-geel); }
+  .eyebrow-center { justify-content: center; }
+
+  /* Clean label / meta (sans, getrackt) */
   .label {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: 0.7rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     color: var(--fg-muted);
   }
   .label-accent { color: var(--color-geel-deep); }
   .ctx-dark .label-accent { color: var(--color-geel); }
 
-  /* Editoriale sectie-index: 01 — met fijne regel */
+  /* Subtiele index */
   .ix {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-weight: 500;
     font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    color: var(--color-geel-deep);
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--fg-muted);
   }
-  .ctx-dark .ix { color: var(--color-geel); }
 
   .display {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    line-height: 1.0;
+    font-weight: 500;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
     overflow-wrap: break-word;
     color: var(--fg);
   }
-  .h-hero { font-size: clamp(3rem, 9vw, 8.5rem); }
-  .h-section { font-size: clamp(2.1rem, 5.2vw, 4.2rem); }
+  .h-hero { font-size: clamp(2.4rem, 5.6vw, 5rem); }
+  .h-section { font-size: clamp(1.9rem, 4vw, 3.2rem); }
   .h-sub { font-size: clamp(1.5rem, 3vw, 2.3rem); }
-  .h-card { font-size: clamp(1.2rem, 2vw, 1.5rem); }
-  .lh-tight { line-height: 0.98; }
+  .h-card { font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+  .lh-tight { line-height: 1.02; }
 
   .lede { font-size: clamp(1.08rem, 1.4vw, 1.34rem); line-height: 1.68; color: var(--fg-soft); }
   .muted { color: var(--fg-muted); }
