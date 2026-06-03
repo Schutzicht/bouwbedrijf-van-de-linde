@@ -24,12 +24,11 @@ export const company = {
 };
 
 export const nav = [
-  { label: "Diensten", href: "#diensten" },
-  { label: "Projecten", href: "#projecten" },
-  { label: "Werkwijze", href: "#werkwijze" },
-  { label: "Over ons", href: "#over-ons" },
-  { label: "Werken bij", href: "#vacatures" },
-  { label: "Contact", href: "#contact" },
+  { label: "Diensten", href: "/diensten" },
+  { label: "Projecten", href: "/projecten" },
+  { label: "Over ons", href: "/over-ons" },
+  { label: "Werken bij", href: "/werken-bij" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const hero = {
@@ -37,7 +36,7 @@ export const hero = {
   titleLines: ["Bouwen", "met karakter,", "voor generaties."],
   intro:
     "Van een eeuwenoud rijksmonument tot een strakke nieuwbouwvilla: al ruim 70 jaar bouwt en restaureert Van de Linde in heel Zeeland. Een familiebedrijf met circa 60 vakmensen, korte lijnen en één belofte. Niet de grootste willen zijn, wel de beste.",
-  ctaPrimary: { label: "Offerte aanvragen", href: "#contact" },
+  ctaPrimary: { label: "Offerte aanvragen", href: "/contact" },
   ctaSecondary: { label: "Bekijk projecten", href: "#projecten" },
 };
 
@@ -244,8 +243,8 @@ export const keurmerken = [
 ];
 
 export const vacatures = [
-  { title: "Timmerman", type: "Fulltime", href: "#contact" },
-  { title: "Voorman", type: "Fulltime", href: "#contact" },
-  { title: "Werkvoorbereider", type: "Fulltime", href: "#contact" },
-  { title: "Allround medewerker servicedienst", type: "Fulltime", href: "#contact" },
+  { title: "Timmerman", type: "Fulltime", href: "/contact" },
+  { title: "Voorman", type: "Fulltime", href: "/contact" },
+  { title: "Werkvoorbereider", type: "Fulltime", href: "/contact" },
+  { title: "Allround medewerker servicedienst", type: "Fulltime", href: "/contact" },
 ];

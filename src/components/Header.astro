@@ -1,5 +1,7 @@
 ---
 import { company, nav } from "../data/site";
+const path = (Astro.url.pathname.replace(/\/+$/, "") || "/");
+const isCurrent = (href: string) => href === path;
 ---
 
 <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
@@ -8,14 +10,14 @@ import { company, nav } from "../data/site";
       id="header-inner"
       class="mt-3 flex items-center justify-between rounded-full border border-transparent px-4 py-2.5 transition-all duration-500 sm:px-5"
     >
-      <a href="#top" class="flex items-center" aria-label={`${company.name} home`}>
+      <a href="/" class="flex items-center" aria-label={`${company.name} home`}>
         <img src="/brand/logo-ink.png" alt={company.name} class="h-9 w-auto sm:h-10" width="224" height="55" />
       </a>
 
       <nav class="hidden items-center gap-0.5 lg:flex">
         {
           nav.map((item) => (
-            <a href={item.href} class="nav-link link-sweep px-3.5 py-2 text-sm font-medium transition-colors duration-300">
+            <a href={item.href} aria-current={isCurrent(item.href) ? "page" : undefined} class={`nav-link link-sweep px-3.5 py-2 text-sm font-medium transition-colors duration-300 ${isCurrent(item.href) ? "is-current" : ""}`}>
               {item.label}
             </a>
           ))
@@ -26,7 +28,7 @@ import { company, nav } from "../data/site";
         <a href={company.phoneHref} class="hdr-phone hidden text-sm font-semibold transition-colors xl:block">
           {company.phone}
         </a>
-        <a href="#contact" class="hdr-cta btn-mag inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300">
+        <a href="/contact" class="hdr-cta inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300">
           Offerte aanvragen
         </a>
         <button id="menu-toggle" class="menu-btn grid h-10 w-10 place-items-center rounded-full border transition-colors lg:hidden" aria-label="Menu openen" aria-expanded="false">
@@ -42,12 +44,12 @@ import { company, nav } from "../data/site";
     <nav class="absolute inset-x-4 top-20 rounded-3xl border border-[var(--border)] bg-white p-4 shadow-2xl">
       {
         nav.map((item) => (
-          <a href={item.href} data-close class="block rounded-2xl px-4 py-3.5 text-lg font-medium text-[var(--fg)] transition-colors hover:bg-[var(--surface-2)]">
+          <a href={item.href} data-close aria-current={isCurrent(item.href) ? "page" : undefined} class={`block rounded-2xl px-4 py-3.5 text-lg font-medium transition-colors hover:bg-[var(--surface-2)] ${isCurrent(item.href) ? "text-[var(--color-navy)]" : "text-[var(--fg)]"}`}>
             {item.label}
           </a>
         ))
       }
-      <a href="#contact" data-close class="mt-2 block rounded-2xl bg-[var(--color-navy)] px-4 py-3.5 text-center text-lg font-semibold text-white">
+      <a href="/contact" data-close class="mt-2 block rounded-2xl bg-[var(--color-navy)] px-4 py-3.5 text-center text-lg font-semibold text-white">
         Offerte aanvragen
       </a>
       <div class="mt-3 flex flex-col gap-1.5 border-t border-[var(--border-soft)] px-4 pt-3 text-sm text-[var(--fg-muted)]">
@@ -87,17 +89,21 @@ import { company, nav } from "../data/site";
   /* Header staat altijd over een lichte achtergrond: donkere content */
   .nav-link { color: var(--fg-soft); }
   .nav-link:hover { color: var(--color-navy); }
+  .nav-link.is-current { color: var(--color-navy); font-weight: 600; }
   .hdr-phone { color: var(--fg-soft); }
   .hdr-phone:hover { color: var(--color-navy); }
   .hdr-cta { background: var(--color-navy); color: #fff; }
   .hdr-cta:hover { transform: translateY(-1px); background: #00468c; box-shadow: 0 12px 26px -10px rgba(0, 60, 120, 0.5); }
   .menu-btn { border-color: var(--border); color: var(--color-navy); }
 
-  /* Gescrolld: subtiele achtergrond-blur + rand */
-  #header-inner.is-scrolled {
-    background: rgba(244, 240, 231, 0.9);
-    backdrop-filter: blur(16px);
+  /* Altijd een lichte zwevende balk: leesbaar over zowel lichte als donkere secties */
+  #header-inner {
+    background: rgba(251, 249, 244, 0.82);
+    backdrop-filter: blur(14px);
     border-color: var(--border);
+  }
+  #header-inner.is-scrolled {
+    background: rgba(251, 249, 244, 0.95);
     box-shadow: 0 12px 34px -22px rgba(11, 31, 58, 0.4);
   }
 </style>
