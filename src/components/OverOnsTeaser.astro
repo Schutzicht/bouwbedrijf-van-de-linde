@@ -1,0 +1,44 @@
+---
+import { company } from "../data/site";
+---
+
+<section class="ctx-light relative overflow-hidden py-24 sm:py-32" style="background:var(--color-steen);">
+  <div class="container-edge">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <!-- Foto van de eigenaar -->
+      <div class="reveal relative order-1">
+        <div class="overflow-hidden rounded-2xl" style="box-shadow:var(--shadow-card);">
+          <img
+            src="/img/eigenaar.jpg"
+            alt="De eigenaar van Bouwbedrijf Van de Linde bij het project Land aan Zee"
+            class="aspect-[4/3] w-full object-cover"
+            style="object-position:55% 40%;"
+            loading="lazy" width="1100" height="825"
+          />
+        </div>
+        <div class="absolute -bottom-5 -right-5 rounded-2xl px-6 py-5 text-center sm:px-7" style="background:var(--color-navy);color:#fff;box-shadow:0 24px 48px -18px rgba(0,0,0,0.4);">
+          <div class="display leading-none" style="font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:600;">70<span style="color:var(--color-geel);">+</span></div>
+          <div class="label mt-1.5" style="color:rgba(255,255,255,0.75);">jaar in Zeeland</div>
+        </div>
+      </div>
+
+      <!-- Tekst -->
+      <div class="reveal order-2">
+        <p class="eyebrow">Drie generaties</p>
+        <h2 class="display h-section mt-5">U bouwt met mensen,<br />geen nummer.</h2>
+        <p class="lede mt-6 max-w-xl">
+          Al ruim 70 jaar is Van de Linde een echt Zeeuws familiebedrijf. Bij ons heeft u
+          één vast aanspreekpunt dat u kent, van het eerste gesprek tot ver na de oplevering.
+          Korte lijnen, eerlijk advies en trots op het werk.
+        </p>
+        <p class="mt-5 border-l-2 pl-5 text-[var(--fg-soft)]" style="border-color:var(--color-geel);font-style:normal;">
+          "{company.motto}."
+        </p>
+        <a href="/over-ons" class="link-sweep mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-navy)]">
+          Lees ons verhaal
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
